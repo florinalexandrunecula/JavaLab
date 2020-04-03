@@ -16,13 +16,15 @@ public class SoftDev extends Angajat {
                 '}';
     }
 
-    public void munceste(){
+    public boolean munceste(){
 
         if (this.munceste == true){
             System.out.println( "Angajatul munceste");
+            return true;
         }
         else {
             System.out.println("Angajatul nu munceste");
+            return false;
         }
     }
 }
