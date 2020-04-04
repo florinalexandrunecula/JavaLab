@@ -27,4 +27,6 @@ public class SoftDev extends Angajat {
             return false;
         }
     }
+
+
 }

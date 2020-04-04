@@ -46,4 +46,28 @@ public class CTO extends Angajat {
             }
         }
     }
+
+    public void adaugaInEchipa(Angajat angajat){
+
+        Angajat[] copie = new Angajat[this.angajati.length + 1];
+        for (int i = 0; i < this.angajati.length; i++){
+            copie[i] = this.angajati[i];
+        }
+        copie[this.angajati.length] = angajat;
+        this.angajati = copie;
+    }
+
+    public void scotDinEchipa(Angajat angajat){
+
+        Angajat[] copie = new Angajat[this.angajati.length - 1];
+        int k = 0;
+        for (int i = 0; i < this.angajati.length; i++){
+            if (angajat.getNume() == this.angajati[i].getNume() && angajat.getPrenume() == this.angajati[i].getPrenume()){
+                continue;
+            }
+            copie[k] = this.angajati[i];
+            k = k + 1;
+        }
+        this.angajati = copie;
+    }
 }

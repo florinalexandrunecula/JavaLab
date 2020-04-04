@@ -8,6 +8,9 @@ public class GestiuneConcedii {
     public GestiuneConcedii(Concediu[] concedii) {
 
         this.concedii = concedii;
+        for (int i = 0; i < this.concedii.length; i++){
+            this.concedii[i].calculareConcediu();
+        }
     }
 
     //in functie de rating-ul de la CTO
@@ -26,6 +29,7 @@ public class GestiuneConcedii {
 
     @Override
     public String toString() {
+
         return "GestiuneConcedii{" +
                 "concedii=" + Arrays.toString(concedii) +
                 '}';

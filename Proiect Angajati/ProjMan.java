@@ -34,4 +34,19 @@ public class ProjMan extends Angajat {
         copie[this.marimeEchipa - 1] = softdev;
         this.echipa = copie;
     }
+
+    public void scotDinEchipa(SoftDev softdev){
+
+        this.marimeEchipa = this.marimeEchipa - 1;
+        SoftDev[] copie = new SoftDev[this.marimeEchipa];
+        int k = 0;
+        for (int i = 0; i < this.echipa.length; i++){
+            if (softdev.getNume() == this.echipa[i].getNume() && softdev.getPrenume() == this.echipa[i].getPrenume()){
+                continue;
+            }
+            copie[k] = this.echipa[i];
+            k = k + 1;
+        }
+        this.echipa = copie;
+    }
 }

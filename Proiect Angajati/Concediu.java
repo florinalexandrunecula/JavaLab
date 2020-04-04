@@ -11,13 +11,26 @@ public class Concediu {
         this.angajat = angajat;
     }
 
+    public int getZileConcediu() {
+
+        return zileConcediu;
+    }
+
     public void calculareConcediu(){
 
         String post = angajat.getPost();
         int vechime = angajat.getVechime();
         if (post == "Software Developer"){
             int baza = 20;
-            this.zileConcediu = baza + 1/vechime * baza;
+            this.zileConcediu = baza + (vechime * baza)/2;
+        }
+        if (post == "Project Manager"){
+            int baza = 25;
+            this.zileConcediu = baza + (vechime * baza)/2;
+        }
+        if (post == "Chief Technical Officer"){
+            int baza = 30;
+            this.zileConcediu = baza + (vechime * baza)/2;
         }
     }
 
