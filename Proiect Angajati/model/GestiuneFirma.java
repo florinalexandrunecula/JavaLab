@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Arrays;
 
 public class GestiuneFirma {
@@ -43,7 +45,7 @@ public class GestiuneFirma {
         Angajat[] copie = new Angajat[this.numarAngajati - 1];
         int k = 0;
         for (int i = 0; i < this.angajati.length; i++){
-            if (angajat.getNume() == this.angajati[i].getNume() && angajat.getPrenume() == this.angajati[i].getPrenume()){
+            if (angajat.getNume().equals(this.angajati[i].getNume()) && angajat.getPrenume().equals(this.angajati[i].getPrenume())){
                 continue;
             }
             copie[k] = this.angajati[i];

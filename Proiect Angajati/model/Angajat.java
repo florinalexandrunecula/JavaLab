@@ -1,4 +1,6 @@
-public class Angajat extends Persoana {
+package model;
+
+public abstract class Angajat extends Persoana {
 
     private int vechime;
     private int anAngajare;
@@ -13,6 +15,14 @@ public class Angajat extends Persoana {
         this.vechime = vechime;
         this.anAngajare = anAngajare;
         this.post = post;
+    }
+
+    public static int getSalariuBaza() {
+        return salariuBaza;
+    }
+
+    public static void setSalariuBaza(int salariuBaza) {
+        Angajat.salariuBaza = salariuBaza;
     }
 
     public int getVechime() {
@@ -66,20 +76,22 @@ public class Angajat extends Persoana {
                 '}';
     }
 
-    public void calculareSalariu(){
+//    public void calculareSalariu(){
+//
+//        if (this.post.equals("Software Developer")){
+//            this.salariuCalculat = salariuBaza * 1 + 44/100 * salariuBaza;
+//        }
+//
+//        if (this.post.equals("Project Manager")){
+//            this.salariuCalculat = salariuBaza * 2 + 44/100 * salariuBaza;
+//        }
+//
+//        if (this.post.equals("Chief Technical Officer")){
+//            this.salariuCalculat = salariuBaza * 3 + 44/100 * salariuBaza;
+//        }
+//    }
 
-        if (this.post == "Software Developer"){
-            this.salariuCalculat = salariuBaza * 1 + 44/100 * salariuBaza;
-        }
-
-        if (this.post == "Project Manager"){
-            this.salariuCalculat = salariuBaza * 2 + 44/100 * salariuBaza;
-        }
-
-        if (this.post == "Chief Technical Officer"){
-            this.salariuCalculat = salariuBaza * 3 + 44/100 * salariuBaza;
-        }
-    }
+    public abstract void calculareSalariu();
 
     public void marireSalariu(int procentaj){
 

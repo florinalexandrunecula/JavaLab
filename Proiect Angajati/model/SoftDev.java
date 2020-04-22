@@ -1,3 +1,5 @@
+package model;
+
 public class SoftDev extends Angajat {
 
     private boolean munceste;
@@ -14,6 +16,13 @@ public class SoftDev extends Angajat {
         return super.toString() + "SoftDev{" +
                 "munceste=" + munceste +
                 '}';
+    }
+
+    @Override
+    public void calculareSalariu() {
+
+        int baza = getSalariuBaza();
+        setSalariuCalculat(baza * 1 + 44/100 * baza);
     }
 
     public boolean munceste(){

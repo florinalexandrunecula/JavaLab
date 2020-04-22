@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Arrays;
 
 public class ProjMan extends Angajat {
@@ -24,6 +26,13 @@ public class ProjMan extends Angajat {
                 '}';
     }
 
+    @Override
+    public void calculareSalariu() {
+
+        int baza = getSalariuBaza();
+        setSalariuCalculat(baza * 2 + 44/100 * baza);
+    }
+
     public void adaugaInEchipa(SoftDev softdev){
 
         this.marimeEchipa = this.marimeEchipa + 1;
@@ -41,7 +50,7 @@ public class ProjMan extends Angajat {
         SoftDev[] copie = new SoftDev[this.marimeEchipa];
         int k = 0;
         for (int i = 0; i < this.echipa.length; i++){
-            if (softdev.getNume() == this.echipa[i].getNume() && softdev.getPrenume() == this.echipa[i].getPrenume()){
+            if (softdev.getNume().equals(this.echipa[i].getNume()) && softdev.getPrenume().equals(this.echipa[i].getPrenume())){
                 continue;
             }
             copie[k] = this.echipa[i];

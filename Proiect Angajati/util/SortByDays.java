@@ -1,3 +1,7 @@
+package util;
+
+import model.Concediu;
+
 import java.util.Comparator;
 
 public class SortByDays implements Comparator<Concediu> {

@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -26,6 +28,13 @@ public class CTO extends Angajat {
         return super.toString() + "CTO{" +
                 "angajati=" + Arrays.toString(angajati) +
                 '}';
+    }
+
+    @Override
+    public void calculareSalariu() {
+
+        int baza = getSalariuBaza();
+        setSalariuCalculat(baza * 3 + 44/100 * baza);
     }
 
     public void adaugaRating(){
@@ -62,7 +71,7 @@ public class CTO extends Angajat {
         Angajat[] copie = new Angajat[this.angajati.length - 1];
         int k = 0;
         for (int i = 0; i < this.angajati.length; i++){
-            if (angajat.getNume() == this.angajati[i].getNume() && angajat.getPrenume() == this.angajati[i].getPrenume()){
+            if (angajat.getNume().equals(this.angajati[i].getNume()) && angajat.getPrenume().equals(this.angajati[i].getPrenume())){
                 continue;
             }
             copie[k] = this.angajati[i];

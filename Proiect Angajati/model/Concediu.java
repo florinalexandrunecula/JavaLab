@@ -1,3 +1,5 @@
+package model;
+
 public class Concediu {
 
     protected Angajat angajat;
@@ -20,15 +22,15 @@ public class Concediu {
 
         String post = angajat.getPost();
         int vechime = angajat.getVechime();
-        if (post == "Software Developer"){
+        if (post.equals("Software Developer")){
             int baza = 20;
             this.zileConcediu = baza + (vechime * baza)/2;
         }
-        if (post == "Project Manager"){
+        if (post.equals("Project Manager")){
             int baza = 25;
             this.zileConcediu = baza + (vechime * baza)/2;
         }
-        if (post == "Chief Technical Officer"){
+        if (post.equals("Chief Technical Officer")){
             int baza = 30;
             this.zileConcediu = baza + (vechime * baza)/2;
         }
