@@ -9,14 +9,12 @@ public class GestiuneFirma {
     private int numarAngajati;
 
     public GestiuneFirma(String nume, Angajat[] angajati) {
-
         this.nume = nume;
         this.angajati = angajati;
         this.numarAngajati = this.angajati.length;
     }
 
     public Angajat[] getAngajati() {
-
         return angajati;
     }
 
@@ -30,25 +28,21 @@ public class GestiuneFirma {
     }
 
     public void angajeazaPeCineva(Angajat angajat){
-
         Angajat[] copie = new Angajat[this.numarAngajati + 1];
-        for (int i = 0; i < this.numarAngajati; i++){
-            copie[i] = this.angajati[i];
-        }
+        if (this.numarAngajati >= 0) System.arraycopy(this.angajati, 0, copie, 0, this.numarAngajati);
         copie[this.numarAngajati] = angajat;
         this.angajati = copie;
         this.numarAngajati = this.angajati.length;
     }
 
     public void daAfaraPeCineva(Angajat angajat){
-
         Angajat[] copie = new Angajat[this.numarAngajati - 1];
         int k = 0;
-        for (int i = 0; i < this.angajati.length; i++){
-            if (angajat.getNume().equals(this.angajati[i].getNume()) && angajat.getPrenume().equals(this.angajati[i].getPrenume())){
+        for (Angajat value : this.angajati) {
+            if (angajat.getNume().equals(value.getNume()) && angajat.getPrenume().equals(value.getPrenume())) {
                 continue;
             }
-            copie[k] = this.angajati[i];
+            copie[k] = value;
             k = k + 1;
         }
         this.angajati = copie;

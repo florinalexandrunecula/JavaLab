@@ -13,19 +13,16 @@ public class Writer {
     private static Writer single_instance = null;
 
     private Writer(){
-
         BASE_PATH = "./src/";
     }
 
     public static Writer getInstance(){
-
         if (single_instance == null)
             single_instance = new Writer();
         return single_instance;
     }
 
     public void writeContent(String toWrite) throws IOException {
-
         File file = new File(BASE_PATH + "output.csv");
         FileWriter fw;
         if (file.exists()){
@@ -47,8 +44,6 @@ public class Writer {
     }
 
     public static void main(String[] args) throws IOException {
-
         Writer scriitorul = Writer.getInstance();
-        scriitorul.writeContent("Ana are mere");
     }
 }

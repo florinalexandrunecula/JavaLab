@@ -9,13 +9,11 @@ public class CTO extends Angajat {
     public Angajat[] angajati;
 
     private CTO(String nume, String prenume, int vechime, int anAngajare, String post, Angajat[] angajati) {
-
         super(nume, prenume, vechime, anAngajare, post);
         this.angajati = angajati;
     }
 
     public static CTO createCTO(String nume, String prenume, int vechime, int anAngajare, String post, Angajat[] angajati){
-
         if (cto == null){
             cto = new CTO(nume, prenume, vechime, anAngajare, post, angajati);
         }
@@ -24,7 +22,6 @@ public class CTO extends Angajat {
 
     @Override
     public String toString() {
-
         return super.toString() + "CTO{" +
                 "angajati=" + Arrays.toString(angajati) +
                 '}';
@@ -32,49 +29,41 @@ public class CTO extends Angajat {
 
     @Override
     public void calculareSalariu() {
-
         int baza = getSalariuBaza();
-        setSalariuCalculat(baza * 3 + 44/100 * baza);
+        setSalariuCalculat(baza * 3);
     }
 
     public void adaugaRating(){
-
-        for (int i = 0; i < this.angajati.length; i++){
+        for (Angajat value : this.angajati) {
             Random random = new Random();
-            if (this.angajati[i] instanceof SoftDev){
-                SoftDev angajat = (SoftDev) this.angajati[i];
-                if (angajat.munceste() == true){
-                    this.angajati[i].ratingSuperior = random.nextInt(10);
+            if (value instanceof SoftDev) {
+                SoftDev angajat = (SoftDev) value;
+                if (angajat.munceste()) {
+                    value.ratingSuperior = random.nextInt(10);
+                } else {
+                    value.ratingSuperior = random.nextInt(5);
                 }
-                else{
-                    this.angajati[i].ratingSuperior = random.nextInt(5);
-                }
-            }
-            else {
-                this.angajati[i].ratingSuperior = random.nextInt(10);
+            } else {
+                value.ratingSuperior = random.nextInt(10);
             }
         }
     }
 
     public void adaugaInEchipa(Angajat angajat){
-
         Angajat[] copie = new Angajat[this.angajati.length + 1];
-        for (int i = 0; i < this.angajati.length; i++){
-            copie[i] = this.angajati[i];
-        }
+        System.arraycopy(this.angajati, 0, copie, 0, this.angajati.length);
         copie[this.angajati.length] = angajat;
         this.angajati = copie;
     }
 
     public void scotDinEchipa(Angajat angajat){
-
         Angajat[] copie = new Angajat[this.angajati.length - 1];
         int k = 0;
-        for (int i = 0; i < this.angajati.length; i++){
-            if (angajat.getNume().equals(this.angajati[i].getNume()) && angajat.getPrenume().equals(this.angajati[i].getPrenume())){
+        for (Angajat value : this.angajati) {
+            if (angajat.getNume().equals(value.getNume()) && angajat.getPrenume().equals(value.getPrenume())) {
                 continue;
             }
-            copie[k] = this.angajati[i];
+            copie[k] = value;
             k = k + 1;
         }
         this.angajati = copie;

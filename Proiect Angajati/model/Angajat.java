@@ -10,7 +10,6 @@ public abstract class Angajat extends Persoana {
     protected int ratingSuperior;
 
     public Angajat(String nume, String prenume, int vechime, int anAngajare, String post) {
-
         super(nume, prenume);
         this.vechime = vechime;
         this.anAngajare = anAngajare;
@@ -26,48 +25,39 @@ public abstract class Angajat extends Persoana {
     }
 
     public int getVechime() {
-
         return vechime;
     }
 
     public void setVechime(int vechime) {
-
         this.vechime = vechime;
     }
 
     public int getAnAngajare() {
-
         return anAngajare;
     }
 
     public void setAnAngajare(int anAngajare) {
-
         this.anAngajare = anAngajare;
     }
 
     public int getSalariuCalculat() {
-
         return salariuCalculat;
     }
 
     public void setSalariuCalculat(int salariuCalculat) {
-
         this.salariuCalculat = salariuCalculat;
     }
 
     public String getPost() {
-
         return post;
     }
 
     public void setPost(String post) {
-
         this.post = post;
     }
 
     @Override
     public String toString() {
-
         return super.toString() + "Angajat{" +
                 "vechime=" + vechime +
                 ", anAngajare=" + anAngajare +
@@ -94,7 +84,6 @@ public abstract class Angajat extends Persoana {
     public abstract void calculareSalariu();
 
     public void marireSalariu(int procentaj){
-
         this.salariuCalculat = this.salariuCalculat + procentaj/100 * this.salariuCalculat;
     }
 }

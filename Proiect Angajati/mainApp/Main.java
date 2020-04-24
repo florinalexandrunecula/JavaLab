@@ -11,27 +11,25 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
         Reader Cititorul = Reader.getInstance();
-        String[][] values = Cititorul.readContent();
+        String[][] CompanyNames = Cititorul.readContent("CompanyNames.csv");
+        String[][] CTOs = Cititorul.readContent("CTOs.csv");
+        String[][] ProjectManagers = Cititorul.readContent("ProjectManagers.csv");
+        String[][] SoftDevs = Cititorul.readContent("SoftDevs.csv");
 
         ServiciuAngajati S1 = new ServiciuAngajati();
         ServiciuGestiuneConcedii S2 = new ServiciuGestiuneConcedii();
         ServiciuGestiuneFirma S3 = new ServiciuGestiuneFirma();
 
         //Hai sa facem prima noastra firma. Avem nevoie de angajati si un CTO
-//        SoftDev s1 = new SoftDev("Necula", "Alexandru", 2, 2018, "Software Developer", false);
-        SoftDev s1 = new SoftDev(values[1][0], values[1][1], Integer.parseInt(values[1][2]), Integer.parseInt(values[1][3]), values[1][4], Boolean.parseBoolean(values[1][5]));
-//        SoftDev s2 = new SoftDev("Buzoi", "Bianca", 1, 2019, "Software Developer", true);
-        SoftDev s2 = new SoftDev(values[2][0], values[2][1], Integer.parseInt(values[2][2]), Integer.parseInt(values[2][3]), values[2][4], Boolean.parseBoolean(values[2][5]));
+        SoftDev s1 = new SoftDev(SoftDevs[0][0], SoftDevs[0][1], Integer.parseInt(SoftDevs[0][2]), Integer.parseInt(SoftDevs[0][3]), SoftDevs[0][4], Boolean.parseBoolean(SoftDevs[0][5]));
+        SoftDev s2 = new SoftDev(SoftDevs[1][0], SoftDevs[1][1], Integer.parseInt(SoftDevs[1][2]), Integer.parseInt(SoftDevs[1][3]), SoftDevs[1][4], Boolean.parseBoolean(SoftDevs[1][5]));
         SoftDev[] echipa1 = new SoftDev[]{s1, s2};
-//        ProjMan p1 = new ProjMan("Gavril", "Bogdan", 3, 2017, "Project Manager", "MachineLearning", 2, echipa1);
-        ProjMan p1 = new ProjMan(values[3][0], values[3][1], Integer.parseInt(values[3][2]), Integer.parseInt(values[3][3]), values[3][4], values[3][5], 2, echipa1);
+        ProjMan p1 = new ProjMan(ProjectManagers[0][0], ProjectManagers[0][1], Integer.parseInt(ProjectManagers[0][2]), Integer.parseInt(ProjectManagers[0][3]), ProjectManagers[0][4], ProjectManagers[0][5], 2, echipa1);
         Angajat[] subordonati = new Angajat[]{s1, s2, p1};
-//        CTO cto = CTO.createCTO("Cook", "Tim", 30, 1975, "Chief Technical Officer", subordonati);
-        CTO cto = CTO.createCTO(values[4][0], values[4][1], Integer.parseInt(values[4][2]), Integer.parseInt(values[4][3]), values[4][4], subordonati);
+        CTO cto = CTO.createCTO(CTOs[0][0], CTOs[0][1], Integer.parseInt(CTOs[0][2]), Integer.parseInt(CTOs[0][3]), CTOs[0][4], subordonati);
         Angajat[] angajati = new Angajat[]{s1, s2, p1, cto};
-        GestiuneFirma MyCompany = S3.creeazaOFirma(values[0][0], angajati);
+        GestiuneFirma MyCompany = S3.creeazaOFirma(CompanyNames[0][0], angajati);
 
         //Hai sa vedem cum arata firma noastra
         S3.afisareFirma(MyCompany);
@@ -41,15 +39,11 @@ public class Main {
         S3.afisareFirma(MyCompany);
 
         //Se pare ca multi angajati vor sa vina la noi la firma, hai sa ii angajam
-//        SoftDev s3 = new SoftDev("Popescu", "Alexandra", 4, 2020, "Software Developer", true);
-        SoftDev s3 = new SoftDev(values[5][0], values[5][1], Integer.parseInt(values[5][2]), Integer.parseInt(values[5][3]), values[5][4], Boolean.parseBoolean(values[5][5]));
-//        SoftDev s4 = new SoftDev("Brebeanu", "Andrei", 1, 2020, "Software Developer", false);
-        SoftDev s4 = new SoftDev(values[6][0], values[6][1], Integer.parseInt(values[6][2]), Integer.parseInt(values[6][3]), values[6][4], Boolean.parseBoolean(values[6][5]));
-//        SoftDev s5 = new SoftDev("Dumitrescu", "Liviu", 3, 2020, "Software Developer", true);
-        SoftDev s5 = new SoftDev(values[7][0], values[7][1], Integer.parseInt(values[7][2]), Integer.parseInt(values[7][3]), values[7][4], Boolean.parseBoolean(values[7][5]));
+        SoftDev s3 = new SoftDev(SoftDevs[2][0], SoftDevs[2][1], Integer.parseInt(SoftDevs[2][2]), Integer.parseInt(SoftDevs[2][3]), SoftDevs[2][4], Boolean.parseBoolean(SoftDevs[2][5]));
+        SoftDev s4 = new SoftDev(SoftDevs[3][0], SoftDevs[3][1], Integer.parseInt(SoftDevs[3][2]), Integer.parseInt(SoftDevs[3][3]), SoftDevs[3][4], Boolean.parseBoolean(SoftDevs[3][5]));
+        SoftDev s5 = new SoftDev(SoftDevs[4][0], SoftDevs[4][1], Integer.parseInt(SoftDevs[4][2]), Integer.parseInt(SoftDevs[4][3]), SoftDevs[4][4], Boolean.parseBoolean(SoftDevs[4][5]));
         SoftDev[] echipa2 = new SoftDev[0];
-//        ProjMan p2 = new ProjMan("Necula", "Gabriel", 10, 2020, "Project Manager", "DataGathering", 0, echipa2);
-        ProjMan p2 = new ProjMan(values[8][0], values[8][1], Integer.parseInt(values[8][2]), Integer.parseInt(values[8][3]), values[8][4], values[8][5], 0, echipa2);
+        ProjMan p2 = new ProjMan(ProjectManagers[1][0], ProjectManagers[1][1], Integer.parseInt(ProjectManagers[1][2]), Integer.parseInt(ProjectManagers[1][3]), ProjectManagers[1][4], ProjectManagers[1][5], 0, echipa2);
         S1.adaugaAngajat(MyCompany, s3);
         S1.adaugaAngajat(MyCompany, s4);
         S1.adaugaAngajat(MyCompany, s5);
