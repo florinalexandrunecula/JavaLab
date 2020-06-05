@@ -38,6 +38,8 @@ public class Writer {
         fw.append(toWrite);
         fw.append(", ");
         fw.append(dateFormat.format(date));
+        fw.append(", ");
+        fw.append(Thread.currentThread().getName());
         fw.append('\n');
         fw.flush();
         fw.close();
